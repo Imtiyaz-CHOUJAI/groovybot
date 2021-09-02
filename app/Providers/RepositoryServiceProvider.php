@@ -18,5 +18,6 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(UserRepository::class, EloquentUser::class);
+        $this->app->singleton(RobotRepository::class, EloquentRobot::class);
     }
 }
