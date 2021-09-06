@@ -80,10 +80,6 @@ The app comes with a register endpoint to register new users:
 -   Request `POST` `/register`
 -   Params
 
-    -   Rules
-        -   Email must be unique
-        -   Password is a minimum of 8 character and must be confirmed
-
     ```json
     {
         "name": "Jane Doe",
@@ -92,6 +88,10 @@ The app comes with a register endpoint to register new users:
         "password_confirmation": "secret"
     }
     ```
+
+    -   Rules
+        -   Email must be unique
+        -   Password is a minimum of 8 character and must be confirmed
 
 -   Response
 

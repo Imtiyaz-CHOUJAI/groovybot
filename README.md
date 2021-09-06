@@ -54,7 +54,7 @@ $ php artisan db:seed
 
 The app uses REST API full details on how that works in the link below:
 
-[Full API documentation](markdown).
+[Full API documentation](documentation).
 
 # Stack
 
