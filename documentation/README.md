@@ -359,7 +359,7 @@ To retrieve paginated list of dance-offs:
 
 You can initiate a dance off with the request below:
 
-There are 5 battles with each battle having 1 winner, a winning team is the team with the most one battles.
+There are 5 battles with each battle having 1 winner, a winning team is the team with the most won battles.
 
 -   Request `GET` `/dance-offs/dance`
 
@@ -374,14 +374,14 @@ There are 5 battles with each battle having 1 winner, a winning team is the team
 
     -   Rules
 
-        -   2 teams are required
-        -   A team cannot have a duplicate member
+        -   2 teams are required.
+        -   A team cannot have a duplicate member.
         -   A team can contain only 5 members.
-        -   A member cannot be duplicated between the 2 teams
+        -   A member cannot be duplicated between the 2 teams.
 
 -   Response
 
-    -   Valid Teams and team members
+    -   Valid teams and team members
         ```json
         {
             "results": {
@@ -427,7 +427,7 @@ There are 5 battles with each battle having 1 winner, a winning team is the team
             }
         }
         ```
-    -   Invalid team or duplicate robot in one team
+    -   Invalid team or duplicate robot in a team
         ```json
         {
             "firstTeam.0": ["The firstTeam.0 field has a duplicate value."],
@@ -451,11 +451,11 @@ A more custom docker setup can be build in case of limitation with Laradock.
 
 # Hosting
 
-In terms of hosting it depends on what provider but ideally, there needs to be a zero-downtime deployment stack. I would recommend using [Deployer](https://deployer.org/) as it has been tried and tested and provides a super simple setup and process with a minimal learning curve.
+In terms of hosting it depends on what provider is chosen. However, ideally there needs to be a zero-downtime deployment stack. I would recommend using [Deployer](https://deployer.org/) as it has been tried and tested and provides a super simple setup and process with a minimal learning curve.
 
 # Frontend
 
-For frontend If there is no specific technology, I would recommend using VueJS or React, because of their simplicity and easy integration.
+For frontend if there is no specific technology, I would recommend using VueJS or React, because of their simplicity and easy integration.
 
 A few pages will need to be built (Login, Register, Robots List, View Individual Robot, Robot Leaderboard, DanceOffs List and the page where robots can battle).
 
