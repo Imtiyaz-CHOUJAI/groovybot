@@ -22,5 +22,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'robots'], function () {
         Route::get('/', 'RobotController@index');
         Route::get('/{robot}/show', 'RobotController@show');
+        Route::get('/leader-board', 'RobotController@leaderBoard');
+    });
+
+    /**
+     * dance-offs
+     */
+    Route::group(['prefix' => 'dance-offs'], function () {
+        Route::post('dance', 'DanceOffController@dance');
+        Route::get('/', 'DanceOffController@danceOffs');
     });
 });

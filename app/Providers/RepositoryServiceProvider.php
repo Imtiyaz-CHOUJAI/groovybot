@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\DanceOff\DanceOffRepository;
+use App\Repositories\DanceOff\EloquentDanceOff;
 use App\Repositories\Robot\EloquentRobot;
 use App\Repositories\Robot\RobotRepository;
 use App\Repositories\User\EloquentUser;
@@ -19,5 +21,6 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->singleton(UserRepository::class, EloquentUser::class);
         $this->app->singleton(RobotRepository::class, EloquentRobot::class);
+        $this->app->singleton(DanceOffRepository::class, EloquentDanceOff::class);
     }
 }

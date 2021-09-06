@@ -30,7 +30,7 @@ class RobotFactory extends Factory
             'power_move' => $this->faker->randomElement(Robot::POWER_MOVES),
             'experience' => $this->faker->numberBetween(0, 20),
             'out_of_order' => $this->faker->boolean,
-            'avatar' => 'https://' . $avatar . '.png',
+            'avatar' => 'https://robohash.org/' . $avatar . '.png',
         ];
     }
 }

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\RobotCollection;
 use App\Http\Resources\RobotResource;
-use App\Models\Robot;
 use App\Repositories\Robot\RobotRepository;
 use Illuminate\Http\Request;
 
@@ -12,7 +11,7 @@ class RobotController extends Controller
 {
 
     /**
-     * @var RobotRepository $robotRepository
+     * @var \App\Repositories\Robot\RobotRepository $robotRepository
      */
     private $robotRepository;
 
@@ -31,7 +30,7 @@ class RobotController extends Controller
     /**
      * Paginate robots.
      *
-     * @param Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
@@ -68,5 +67,22 @@ class RobotController extends Controller
                 'message' => 'Robot Not Found!',
             ], 404);
         }
+    }
+
+    /**
+     * Paginate robots leader-board.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function leaderBoard(Request $request)
+    {
+        $leaderBoard = $this->robotRepository->leaderBoard(
+            $request->get('limit')
+        );
+
+        return response()->json([
+            'leaderBoard' => new RobotCollection($leaderBoard),
+        ]);
     }
 }

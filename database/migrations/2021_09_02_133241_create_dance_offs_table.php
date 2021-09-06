@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRobotsTable extends Migration
+class CreateDanceOffsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateRobotsTable extends Migration
      */
     public function up()
     {
-        Schema::create('robots', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->string('power_move');
-            $table->integer('experience');
-            $table->boolean('out_of_order')->default(false);
-            $table->string('avatar');
+        Schema::create('dance_offs', function (Blueprint $table) {
+            $table->id();
+            $table->integer('first_contender_id')->unsigned();
+            $table->integer('second_contender_id')->unsigned();
+            $table->integer('winner_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateRobotsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('robots');
+        Schema::dropIfExists('dance_offs');
     }
 }

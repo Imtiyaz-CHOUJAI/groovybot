@@ -23,7 +23,7 @@ class Robot extends Model
     ];
 
     /**
-     * Collection of power moves that can be performed by the robots
+     * Collection of power moves that can be performed by the robot
      *
      * @var array
      */
@@ -36,4 +36,25 @@ class Robot extends Model
         'Air Chair',
         'Flares',
     ];
+
+    /**
+     * Participated Dance offs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function danceOffs()
+    {
+        return $this->hasMany(DanceOff::class, 'first_contender_id')
+            ->hasMany(DanceOff::class, 'second_contender_id');
+    }
+
+    /**
+     * Won Dance offs
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function won()
+    {
+        return $this->hasMany(DanceOff::class, 'winner_id');
+    }
 }

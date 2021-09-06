@@ -9,9 +9,8 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-
     /**
-     * @var UserRepository $userRepository
+     * @var \App\Repositories\User\UserRepository $userRepository
      */
     private $userRepository;
 
@@ -54,8 +53,8 @@ class AuthController extends Controller
     /**
      * Store a new user.
      *
-     * @param  Request  $request
-     * @return Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request)
     {

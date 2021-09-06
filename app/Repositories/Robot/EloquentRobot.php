@@ -21,4 +21,14 @@ class EloquentRobot implements RobotRepository
     {
         return Robot::findOrFail($id);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function leaderBoard(?int $limit = 25)
+    {
+        return Robot::withCount('won')
+            ->orderByDesc('won_count')
+            ->paginate(25);
+    }
 }
